@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" font-family="Arial, sans-serif" font-size="12">
+  <rect width="900" height="650" fill="#f9f9f9"/>
+  <text x="450" y="30" text-anchor="middle" font-size="16" font-weight="bold">Diagrama de Casos de Uso - Raízes do Nordeste</text>
+
+  <!-- System boundary -->
+  <rect x="180" y="60" width="540" height="560" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="450" y="80" text-anchor="middle" font-weight="bold">Sistema Raízes do Nordeste</text>
+
+  <!-- Actors -->
+  <g id="cliente">
+    <circle cx="60" cy="150" r="15" fill="none" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="165" x2="60" y2="210" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="180" x2="35" y2="200" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="180" x2="85" y2="200" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="210" x2="40" y2="250" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="210" x2="80" y2="250" stroke="#000" stroke-width="2"/>
+    <text x="60" y="270" text-anchor="middle">Cliente</text>
+  </g>
+
+  <g id="atendente" transform="translate(0,120)">
+    <circle cx="60" cy="150" r="15" fill="none" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="165" x2="60" y2="210" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="180" x2="35" y2="200" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="180" x2="85" y2="200" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="210" x2="40" y2="250" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="210" x2="80" y2="250" stroke="#000" stroke-width="2"/>
+    <text x="60" y="270" text-anchor="middle">Atendente</text>
+  </g>
+
+  <g id="cozinha" transform="translate(0,240)">
+    <circle cx="60" cy="150" r="15" fill="none" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="165" x2="60" y2="210" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="180" x2="35" y2="200" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="180" x2="85" y2="200" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="210" x2="40" y2="250" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="210" x2="80" y2="250" stroke="#000" stroke-width="2"/>
+    <text x="60" y="270" text-anchor="middle">Cozinha</text>
+  </g>
+
+  <g id="gerente" transform="translate(0,360)">
+    <circle cx="60" cy="150" r="15" fill="none" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="165" x2="60" y2="210" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="180" x2="35" y2="200" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="180" x2="85" y2="200" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="210" x2="40" y2="250" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="210" x2="80" y2="250" stroke="#000" stroke-width="2"/>
+    <text x="60" y="270" text-anchor="middle">Gerente</text>
+  </g>
+
+  <g id="pagamento" transform="translate(780,200)">
+    <rect x="0" y="130" width="50" height="40" fill="none" stroke="#000" stroke-width="2"/>
+    <text x="25" y="190" text-anchor="middle" font-size="10">Pagamento</text>
+    <text x="25" y="202" text-anchor="middle" font-size="10">Externo</text>
+  </g>
+
+  <!-- Use cases -->
+  <ellipse cx="300" cy="130" rx="75" ry="22" fill="#fff" stroke="#000"/>
+  <text x="300" y="134" text-anchor="middle">Cadastrar / Autenticar</text>
+
+  <ellipse cx="300" cy="190" rx="75" ry="22" fill="#fff" stroke="#000"/>
+  <text x="300" y="194" text-anchor="middle">Ver cardápio</text>
+
+  <ellipse cx="300" cy="250" rx="75" ry="22" fill="#fff" stroke="#000"/>
+  <text x="300" y="254" text-anchor="middle">Realizar pedido</text>
+
+  <ellipse cx="300" cy="310" rx="75" ry="22" fill="#fff" stroke="#000"/>
+  <text x="300" y="314" text-anchor="middle">Acompanhar status</text>
+
+  <ellipse cx="300" cy="370" rx="75" ry="22" fill="#fff" stroke="#000"/>
+  <text x="300" y="374" text-anchor="middle">Programa fidelidade</text>
+
+  <ellipse cx="300" cy="430" rx="75" ry="22" fill="#fff" stroke="#000"/>
+  <text x="300" y="434" text-anchor="middle">Ver promoções</text>
+
+  <ellipse cx="500" cy="190" rx="75" ry="22" fill="#fff" stroke="#000"/>
+  <text x="500" y="194" text-anchor="middle">Registrar pedido balcão</text>
+
+  <ellipse cx="500" cy="280" rx="75" ry="22" fill="#fff" stroke="#000"/>
+  <text x="500" y="284" text-anchor="middle">Atualizar status</text>
+
+  <ellipse cx="500" cy="370" rx="75" ry="22" fill="#fff" stroke="#000"/>
+  <text x="500" y="374" text-anchor="middle">Ver relatórios</text>
+
+  <ellipse cx="500" cy="450" rx="75" ry="22" fill="#fff" stroke="#000"/>
+  <text x="500" y="454" text-anchor="middle">Processar pagamento</text>
+
+  <ellipse cx="650" cy="280" rx="75" ry="22" fill="#fff" stroke="#000"/>
+  <text x="650" y="284" text-anchor="middle">Preparar pedido</text>
+
+  <!-- Lines cliente -->
+  <line x1="75" y1="150" x2="225" y2="130" stroke="#000"/>
+  <line x1="75" y1="160" x2="225" y2="190" stroke="#000"/>
+  <line x1="75" y1="170" x2="225" y2="250" stroke="#000"/>
+  <line x1="75" y1="180" x2="225" y2="310" stroke="#000"/>
+  <line x1="75" y1="190" x2="225" y2="370" stroke="#000"/>
+  <line x1="75" y1="200" x2="225" y2="430" stroke="#000"/>
+
+  <!-- atendente -->
+  <line x1="75" y1="270" x2="425" y2="190" stroke="#000"/>
+  <line x1="75" y1="280" x2="425" y2="280" stroke="#000"/>
+
+  <!-- cozinha -->
+  <line x1="75" y1="390" x2="575" y2="280" stroke="#000"/>
+
+  <!-- gerente -->
+  <line x1="75" y1="510" x2="425" y2="370" stroke="#000"/>
+
+  <!-- pagamento -->
+  <line x1="575" y1="450" x2="780" y2="350" stroke="#000" stroke-dasharray="4,2"/>
+  <line x1="375" y1="250" x2="500" y2="450" stroke="#000" stroke-dasharray="4,2"/>
+</svg>

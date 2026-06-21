@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Projeto Front-end - Raízes do Nordeste</title>
+  <style>
+    @page { margin: 2.5cm; }
+    body { font-family: "Times New Roman", Times, serif; font-size: 12pt; line-height: 1.5; max-width: 21cm; margin: 0 auto; padding: 2cm; color: #000; }
+    h1 { font-size: 14pt; text-align: center; margin-top: 3cm; }
+    h2 { font-size: 13pt; margin-top: 1.5em; border-bottom: 1px solid #ccc; padding-bottom: 4px; }
+    h3 { font-size: 12pt; margin-top: 1em; }
+    .capa { text-align: center; page-break-after: always; padding-top: 4cm; }
+    .capa p { margin: 8px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 11pt; }
+    th, td { border: 1px solid #333; padding: 6px 8px; text-align: left; }
+    th { background: #f0f0f0; }
+    .sumario { page-break-after: always; }
+    .sumario a { color: #000; text-decoration: none; }
+    .sumario li { margin: 4px 0; }
+    img { max-width: 100%; margin: 12px 0; border: 1px solid #ddd; }
+    .figura { text-align: center; font-size: 10pt; margin: 16px 0; }
+    .figura img { max-height: 400px; }
+    .quebra { page-break-before: always; }
+    ul, ol { margin-left: 1.5em; }
+    .ref { font-size: 11pt; padding-left: 1.5em; text-indent: -1.5em; margin-bottom: 6px; }
+    @media print { body { padding: 0; } }
+  </style>
+</head>
+<body>
+
+<!-- CAPA - PREENCHER COM SEUS DADOS -->
+<div class="capa">
+  <p><strong>UNIVERSIDADE PAULISTA - UNIP</strong></p>
+  <p>Curso: Análise e Desenvolvimento de Sistemas</p>
+  <p style="margin-top:2cm;"><strong>PROJETO MULTIDISCIPLINAR</strong></p>
+  <p>Trilha: Front-end</p>
+  <p style="margin-top:2cm;">Rede Raízes do Nordeste</p>
+  <p style="margin-top:3cm;"><strong>[SEU NOME COMPLETO]</strong></p>
+  <p>RU: [SEU RU]</p>
+  <p>Polo: [SEU POLO]</p>
+  <p>Semestre: 2026/1</p>
+  <p>Professor: Giuliano Lanes de Almeida</p>
+  <p style="margin-top:2cm;">[Cidade] - [Ano]</p>
+</div>
+
+<div class="sumario">
+  <h2>SUMÁRIO</h2>
+  <ol>
+    <li><a href="#intro">Introdução</a></li>
+    <li><a href="#req">Análise e Requisitos</a></li>
+    <li><a href="#diag">Diagramas</a></li>
+    <li><a href="#wire">Wireframes</a></li>
+    <li><a href="#lgpd">LGPD e Privacidade na Interface</a></li>
+    <li><a href="#tec">Entrega Técnica</a></li>
+    <li><a href="#testes">Plano de Testes</a></li>
+    <li><a href="#conc">Conclusão</a></li>
+    <li><a href="#ref">Referências</a></li>
+  </ol>
+</div>
+
+<h2 id="intro">1. Introdução</h2>
+<p>A Rede Raízes do Nordeste é uma franquia de lanchonetes que cresceu nos últimos anos e hoje está presente em várias cidades. O negócio vende comida típica do Nordeste, como tapioca, cuscuz e sucos regionais, e atende tanto quem passa rápido antes do trabalho quanto famílias nos fins de semana.</p>
+<p>Com essa expansão, a empresa passou a ter problemas para manter o padrão entre as unidades. Cada loja tem cardápio um pouco diferente, estoque próprio e formas de atendimento variadas: app, totem na loja, balcão e retirada (pick-up). Por isso decidiram criar um sistema integrado.</p>
+<p>O objetivo deste projeto é propor a interface front-end desse sistema, pensando na experiência do cliente nos canais digitais (app e web) e também no totem. O foco não é só deixar bonito, mas garantir que o fluxo de pedido funcione bem, respeite a LGPD e se adapte a telas de celular e computador.</p>
+<p>Os principais usuários da interface são: o cliente final (que faz pedidos), o atendente (balcão), a cozinha (atualiza status) e o gerente (consulta relatórios). O pagamento é feito por um serviço externo, então a tela só mostra o resultado.</p>
+
+<h2 id="req">2. Análise e Requisitos</h2>
+
+<h3>2.1 Requisitos Funcionais</h3>
+<table>
+  <tr><th>ID</th><th>Requisito</th><th>Descrição</th></tr>
+  <tr><td>RF01</td><td>Cadastro e login</td><td>Cliente cria conta com nome, e-mail e senha. Login valida os dados salvos.</td></tr>
+  <tr><td>RF02</td><td>Cardápio por unidade</td><td>Mostra só os produtos disponíveis na unidade escolhida. Itens sazonais aparecem quando aplicável.</td></tr>
+  <tr><td>RF03</td><td>Realizar pedido</td><td>Cliente adiciona itens ao carrinho, altera quantidade e finaliza para retirada.</td></tr>
+  <tr><td>RF04</td><td>Acompanhar status</td><td>Após pagamento, cliente vê se o pedido está em preparo ou pronto.</td></tr>
+  <tr><td>RF05</td><td>Fidelização</td><td>Acumula pontos a cada compra e mostra recompensas disponíveis.</td></tr>
+  <tr><td>RF06</td><td>Promoções</td><td>Exibe campanhas ativas no cardápio e na área de fidelidade.</td></tr>
+  <tr><td>RF07</td><td>Pagamento externo</td><td>Envia valor ao gateway simulado e exibe confirmação ou erro na tela.</td></tr>
+  <tr><td>RF08</td><td>Multicanal</td><td>Fluxo similar no app/web; totem segue mesma lógica sem exigir cadastro.</td></tr>
+</table>
+
+<h3>2.2 Requisitos Não Funcionais</h3>
+<table>
+  <tr><th>ID</th><th>Requisito</th><th>Descrição</th></tr>
+  <tr><td>RNF01</td><td>Mobile-first</td><td>Layout pensado primeiro para celular, depois adaptado para desktop.</td></tr>
+  <tr><td>RNF02</td><td>Responsividade</td><td>Telas se reorganizam em telas maiores (grid no cardápio desktop).</td></tr>
+  <tr><td>RNF03</td><td>Performance</td><td>Site leve, sem frameworks pesados. Dados mockados no JavaScript.</td></tr>
+  <tr><td>RNF04</td><td>LGPD</td><td>Consentimento no cadastro e página de privacidade acessível.</td></tr>
+  <tr><td>RNF05</td><td>Disponibilidade</td><td>Interface simples que funciona offline parcial (localStorage) para demo.</td></tr>
+  <tr><td>RNF06</td><td>Escalabilidade</td><td>Estrutura separada (HTML, CSS, JS) facilita migrar para React depois.</td></tr>
+</table>
+
+<h3>2.3 Multicanalidade</h3>
+<p>No app e na web o cliente escolhe a unidade, vê o cardápio, faz login se quiser pontos, paga e acompanha o pedido. No totem o fluxo é parecido, mas o cadastro é opcional — a pessoa pode só montar o pedido e pagar na hora. No balcão o atendente usa outra tela (não implementada aqui, mas prevista no diagrama de casos de uso).</p>
+
+<h2 id="diag" class="quebra">3. Diagramas</h2>
+
+<h3>3.1 Diagrama de Casos de Uso</h3>
+<div class="figura">
+  <img src="../diagramas/casos-de-uso.svg" alt="Diagrama de casos de uso">
+  <p>Figura 1 – Diagrama de Casos de Uso</p>
+</div>
+<p>Os atores são: Cliente, Atendente, Cozinha, Gerente e o sistema de Pagamento Externo. O cliente interage com cadastro, cardápio, pedido, status, fidelidade e promoções. O pagamento externo é acionado quando o cliente confirma o pedido.</p>
+
+<h3>3.2 Descrição do Caso de Uso – Realizar Pagamento</h3>
+<table>
+  <tr><td><strong>Caso de uso</strong></td><td>UC – Realizar Pagamento</td></tr>
+  <tr><td><strong>Ator principal</strong></td><td>Cliente</td></tr>
+  <tr><td><strong>Outros atores</strong></td><td>Sistema de Pagamento Externo</td></tr>
+  <tr><td><strong>Pré-condições</strong></td><td>Pedido montado no carrinho e finalizado. Valor calculado.</td></tr>
+  <tr><td><strong>Pós-condições</strong></td><td>Pagamento confirmado → pedido vai para preparo. Recusado → cliente pode tentar de novo.</td></tr>
+</table>
+<p><strong>Fluxo principal:</strong></p>
+<ol>
+  <li>Sistema mostra tela de pagamento com valor total.</li>
+  <li>Cliente escolhe forma (PIX, crédito ou débito).</li>
+  <li>Cliente clica em "Pagar agora".</li>
+  <li>Sistema envia solicitação ao gateway externo (simulado).</li>
+  <li>Gateway retorna confirmação em até alguns segundos.</li>
+  <li>Sistema atualiza status para "Pago" e redireciona para acompanhamento.</li>
+  <li>Pontos de fidelidade são creditados se o cliente estiver logado.</li>
+</ol>
+<p><strong>Fluxo alternativo – falha:</strong> Se o gateway recusar, a tela mostra mensagem de erro em vermelho e o botão de pagar fica disponível de novo. Nenhum dado de cartão fica salvo no sistema da Raízes.</p>
+
+<h3>3.3 Diagrama da Jornada do Usuário</h3>
+<div class="figura">
+  <img src="../diagramas/jornada-usuario.svg" alt="Jornada do usuário">
+  <p>Figura 2 – Jornada do Cliente (do acesso ao cardápio até a retirada)</p>
+</div>
+<p>A jornada começa quando o cliente abre o app e escolhe a unidade. Depois monta o pedido, pode criar conta (com consentimento LGPD), paga pelo serviço externo, acompanha o status e retira na loja ganhando pontos. Os pontos de dor identificados são: fila no horário de pico, pagamento que falha e produto que não existe naquela unidade.</p>
+
+<h2 id="wire" class="quebra">4. Wireframes</h2>
+<p>Foram feitos wireframes de baixa fidelidade para validar a disposição dos elementos antes de codificar. As telas principais são: início (escolha de unidade), cardápio, cadastro, pagamento, status do pedido e fidelidade. Também foi esboçado o fluxo do totem e a versão desktop do cardápio.</p>
+<p>Os wireframes estão no arquivo <em>wireframes/index.html</em> do projeto. Para incluir no PDF, abra essa página no navegador, tire print das telas e cole aqui, ou acesse diretamente:</p>
+<p><strong>Arquivo local:</strong> wireframes/index.html</p>
+<div class="figura">
+  <p><em>[Inserir prints das wireframes mobile e desktop aqui antes de entregar]</em></p>
+  <p>Figura 3 – Wireframes de baixa fidelidade (mobile e desktop)</p>
+</div>
+
+<h2 id="lgpd">5. LGPD e Privacidade na Interface</h2>
+<p>A LGPD aparece de forma visível em três pontos da interface:</p>
+<ul>
+  <li><strong>Cadastro:</strong> checkbox obrigatório para aceitar a política de privacidade, com link para a página completa. Checkbox separado e opcional para receber promoções.</li>
+  <li><strong>Página de privacidade:</strong> explica quais dados são coletados, para que servem e como solicitar exclusão.</li>
+  <li><strong>Pagamento:</strong> aviso de que dados de cartão não ficam no sistema da rede.</li>
+  <li><strong>Fidelidade:</strong> informa que pontos e histórico são usados só para o programa.</li>
+</ul>
+<p>O consentimento fica registrado com data no cadastro (campo consentimentoData no localStorage, que na versão real iria para o back-end). A opção de marketing não é obrigatória, seguindo o princípio do consentimento específico.</p>
+
+<h2 id="tec" class="quebra">6. Entrega Técnica</h2>
+<p>Optei pela <strong>Opção B – Codificação</strong> usando HTML, CSS e JavaScript puros, com dados mockados. Escolhi essa opção porque já tenho familiaridade com essas tecnologias e consigo publicar fácil no GitHub Pages.</p>
+
+<h3>6.1 Tecnologias</h3>
+<ul>
+  <li>HTML5 para estrutura das páginas</li>
+  <li>CSS3 com abordagem mobile-first e media queries</li>
+  <li>JavaScript vanilla para lógica e localStorage</li>
+  <li>Dados mockados em mock-data.js</li>
+</ul>
+
+<h3>6.2 Páginas implementadas</h3>
+<ul>
+  <li>index.html – escolha de unidade</li>
+  <li>cadastro.html e login.html – autenticação</li>
+  <li>cardapio.html – produtos por unidade</li>
+  <li>carrinho.html – revisão do pedido</li>
+  <li>pagamento.html – simulação do gateway</li>
+  <li>pedido.html – acompanhamento de status</li>
+  <li>fidelidade.html – pontos e recompensas</li>
+  <li>privacidade.html – política LGPD</li>
+</ul>
+
+<h3>6.3 Links de acesso</h3>
+<table>
+  <tr><th>Item</th><th>Link</th></tr>
+  <tr><td>Repositório GitHub</td><td>[COLOCAR LINK DO SEU REPOSITÓRIO]</td></tr>
+  <tr><td>Site publicado (GitHub Pages)</td><td>[COLOCAR URL DO SITE PUBLICADO]</td></tr>
+  <tr><td>Wireframes</td><td>[URL]/wireframes/index.html</td></tr>
+</table>
+<p><strong>Importante:</strong> Os links precisam estar públicos na hora da correção.</p>
+
+<h2 id="testes">7. Plano de Testes</h2>
+<p>A estratégia foca em usabilidade, responsividade, fluxos principais e LGPD. Os testes foram feitos manualmente no Chrome, redimensionando a janela para simular mobile e desktop.</p>
+
+<table>
+  <tr><th>ID</th><th>Cenário</th><th>Entrada</th><th>Passos</th><th>Resultado esperado</th><th>Tipo</th></tr>
+  <tr><td>T01</td><td>Ver cardápio da unidade</td><td>Unidade Recife Boa Viagem</td><td>Abrir início → clicar na unidade</td><td>Lista produtos da unidade 1</td><td>Positivo</td></tr>
+  <tr><td>T02</td><td>Produto indisponível</td><td>Unidade reduzida</td><td>Escolher unidade 2 → procurar Bolo de Macaxeira</td><td>Produto não aparece (só unidades 1 e 3)</td><td>Positivo</td></tr>
+  <tr><td>T03</td><td>Cadastro sem LGPD</td><td>Dados válidos, checkbox desmarcado</td><td>Preencher cadastro → enviar</td><td>Mensagem de erro pedindo consentimento</td><td>Negativo</td></tr>
+  <tr><td>T04</td><td>Cadastro completo</td><td>Nome, e-mail, senha, LGPD ok</td><td>Cadastrar → fazer login</td><td>Login funciona com os dados</td><td>Positivo</td></tr>
+  <tr><td>T05</td><td>Login errado</td><td>E-mail correto, senha errada</td><td>Tentar entrar</td><td>Mensagem "E-mail ou senha incorretos"</td><td>Negativo</td></tr>
+  <tr><td>T06</td><td>Carrinho vazio</td><td>Sem itens</td><td>Ir direto ao carrinho → finalizar</td><td>Botão desabilitado ou aviso</td><td>Negativo</td></tr>
+  <tr><td>T07</td><td>Fluxo de pedido</td><td>2 itens no carrinho</td><td>Adicionar → finalizar → pagar</td><td>Status muda para Pago e depois Em preparo</td><td>Positivo</td></tr>
+  <tr><td>T08</td><td>Falha no pagamento</td><td>Pedido pronto</td><td>Clicar "Simular falha"</td><td>Mensagem vermelha, pode tentar de novo</td><td>Negativo</td></tr>
+  <tr><td>T09</td><td>Pontos de fidelidade</td><td>Cliente logado, pedido R$ 30</td><td>Concluir pagamento → abrir fidelidade</td><td>+3 pontos (1 a cada R$ 10)</td><td>Positivo</td></tr>
+  <tr><td>T10</td><td>Responsividade</td><td>Tela 375px e 1024px</td><td>Navegar pelas páginas</td><td>Layout legível, botões clicáveis</td><td>Não funcional</td></tr>
+  <tr><td>T11</td><td>Link privacidade</td><td>Página cadastro</td><td>Clicar no link da política</td><td>Abre privacidade.html com informações LGPD</td><td>Positivo</td></tr>
+  <tr><td>T12</td><td>Promoção no cardápio</td><td>Qualquer unidade</td><td>Abrir cardápio</td><td>Banner de promoção visível no topo</td><td>Positivo</td></tr>
+</table>
+
+<h3>7.1 Evidências</h3>
+<p><em>[Inserir prints das telas principais e dos testes T03, T07 e T08 antes de entregar o PDF]</em></p>
+
+<h2 id="conc" class="quebra">8. Conclusão</h2>
+<p>Este projeto me fez pensar no sistema como um todo, não só nas telas. A parte mais difícil foi conciliar multicanalidade (app, web, totem) com cardápios diferentes por unidade. Resolver isso filtrando produtos por ID da unidade no JavaScript foi simples, mas na versão real viria da API do back-end.</p>
+<p>Sobre LGPD, aprendi que não basta citar na documentação — precisa aparecer no cadastro e em avisos claros. O pagamento externo também exige cuidado na interface: o usuário precisa saber quando está aguardando confirmação e o que fazer se falhar.</p>
+<p>Para evoluir o projeto, faria: integração com API real, telas do atendente e cozinha, testes automatizados com Cypress e deploy com HTTPS. Mesmo sendo uma versão simplificada, acredito que o fluxo principal (unidade → cardápio → pedido → pagamento → status) está coerente com o estudo de caso.</p>
+
+<h2 id="ref">9. Referências</h2>
+<p class="ref">BRASIL. Lei nº 13.709, de 14 de agosto de 2018. Lei Geral de Proteção de Dados Pessoais (LGPD). Diário Oficial da União, Brasília, 15 ago. 2018.</p>
+<p class="ref">COSTA, Gabriel. Desenvolvimento Web com HTML, CSS e JavaScript. São Paulo: Casa do Código, 2020.</p>
+<p class="ref">GOOGLE. Mobile First Design. Disponível em: https://web.dev/responsive-web-design-basics/. Acesso em: jun. 2026.</p>
+<p class="ref">MDN WEB DOCS. LocalStorage API. Disponível em: https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage. Acesso em: jun. 2026.</p>
+<p class="ref">UNIP. Projeto Multidisciplinar – Estudo de Caso Raízes do Nordeste. Material didático, 2026.</p>
+<p class="ref">UNIP. Roteiro de Atividade Prática – Trilha Front-end. Material didático, 2026.</p>
+
+</body>
+</html>

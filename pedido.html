@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acompanhar Pedido - Raízes do Nordeste</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">
+      <span class="logo-icon">🌵</span>
+      <h1>Raízes do Nordeste</h1>
+    </a>
+    <nav><a href="index.html">Início</a></nav>
+  </header>
+
+  <main>
+    <h2>📋 Status do pedido</h2>
+    <div id="conteudo"></div>
+  </main>
+
+  <footer><a href="privacidade.html">Política de Privacidade</a></footer>
+
+  <script src="js/mock-data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    const pedido = getPedidoAtual();
+    const conteudo = document.getElementById("conteudo");
+
+    if (!pedido) {
+      conteudo.innerHTML = '<div class="card"><p>Nenhum pedido ativo.</p><a href="index.html" class="btn btn-block">Fazer um pedido</a></div>';
+    } else {
+      const unidade = unidades.find(u => u.id == pedido.unidadeId);
+      let itensHtml = pedido.itens.map(i =>
+        `<li>${i.icon || "🍽️"} ${i.qtd}x ${i.nome} — ${formatPreco(i.preco * i.qtd)}</li>`
+      ).join("");
+
+      conteudo.innerHTML = `
+        <div class="card">
+          <p><strong>Pedido #${pedido.id}</strong></p>
+          <p style="font-size:0.9rem;">🏪 ${unidade ? unidade.nome : "-"}</p>
+          <p style="font-size:0.85rem;color:#888;">${pedido.data}</p>
+          <p class="status status-preparando" id="status-atual">Status: ${pedido.status}</p>
+          <ul class="lista-simples">${itensHtml}</ul>
+          <div class="total-box">
+            <strong>Total pago: ${formatPreco(pedido.total)}</strong>
+          </div>
+        </div>
+        <p style="font-size:0.9rem;">Aguarde na loja para retirada. Você será avisado quando estiver pronto.</p>
+        <a href="fidelidade.html" class="btn btn-block">Ver meus pontos</a>
+      `;
+
+      if (pedido.status === "Pago") {
+        setTimeout(function() {
+          atualizarStatusPedido("Em preparo");
+          const el = document.getElementById("status-atual");
+          el.textContent = "Status: Em preparo";
+          el.className = "status status-preparando";
+        }, 3000);
+        setTimeout(function() {
+          atualizarStatusPedido("Pronto para retirada");
+          const el = document.getElementById("status-atual");
+          el.textContent = "Status: Pronto para retirada ✓";
+          el.className = "status status-pronto";
+        }, 7000);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fidelidade - Raízes do Nordeste</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">
+      <span class="logo-icon">🌵</span>
+      <h1>Raízes do Nordeste</h1>
+    </a>
+    <nav><a href="index.html">Início</a></nav>
+  </header>
+
+  <main>
+    <h2>🎁 Programa de Fidelidade</h2>
+
+    <div class="card fidelidade-destaque">
+      <p style="margin:0;color:#666;">Seus pontos</p>
+      <p class="pontos" id="pontos">0</p>
+      <p style="font-size:0.85rem;color:#888;margin:0;">A cada R$ 10 em compras = 1 ponto</p>
+    </div>
+
+    <h3>Recompensas</h3>
+    <div class="card recompensa-item">
+      <span class="icon">🏷️</span>
+      <div><strong>50 pontos</strong><br><span style="font-size:0.88rem;color:#666;">Desconto de 10% na próxima compra</span></div>
+    </div>
+    <div class="card recompensa-item">
+      <span class="icon">🥤</span>
+      <div><strong>100 pontos</strong><br><span style="font-size:0.88rem;color:#666;">Suco grátis</span></div>
+    </div>
+
+    <h3>Campanhas</h3>
+    <div class="promo">
+      <strong>Cliente frequente:</strong> Quem compra 3x no mês ganha cupom especial.
+    </div>
+
+    <div class="lgpd-box">
+      Seus pontos e histórico são usados só para o programa de fidelidade. Você pode solicitar exclusão dos dados na página de privacidade.
+    </div>
+
+    <p id="aviso-login" class="msg-erro hidden">Faça <a href="login.html">login</a> para ver seus pontos.</p>
+  </main>
+
+  <footer><a href="privacidade.html">Política de Privacidade</a></footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    const user = getUsuario();
+    if (user) {
+      document.getElementById("pontos").textContent = user.pontos || 0;
+    } else {
+      document.getElementById("aviso-login").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>

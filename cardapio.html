@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio - Raízes do Nordeste</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">
+      <span class="logo-icon">🌵</span>
+      <h1>Raízes do Nordeste</h1>
+    </a>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="carrinho.html">🛒 Carrinho (<span id="qtd-carrinho">0</span>)</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 id="titulo-unidade">Cardápio</h2>
+    <p id="info-unidade" style="color:#666;font-size:0.92rem;"></p>
+
+    <div class="cardapio-layout">
+      <div>
+        <div id="promocoes"></div>
+        <div id="lista-produtos"></div>
+      </div>
+      <div class="carrinho-resumo hidden-mobile" id="resumo-desktop"></div>
+    </div>
+
+    <a href="carrinho.html" class="btn btn-block" style="margin-top:16px;">Ir para o carrinho</a>
+  </main>
+
+  <footer><a href="privacidade.html">Política de Privacidade</a></footer>
+
+  <script src="js/mock-data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const unidadeId = parseInt(params.get("unidade")) || 1;
+    setUnidadeAtual(unidadeId);
+
+    const unidade = unidades.find(u => u.id === unidadeId);
+    document.getElementById("titulo-unidade").textContent = "Cardápio — " + unidade.nome;
+    document.getElementById("info-unidade").textContent =
+      "Produtos disponíveis nesta unidade. Itens sazonais aparecem em épocas específicas.";
+
+    const promoDiv = document.getElementById("promocoes");
+    promocoes.forEach(p => {
+      promoDiv.innerHTML += `<div class="promo"><strong>🏷️ ${p.titulo}</strong><br>${p.desc}</div>`;
+    });
+
+    const produtos = getCardapioUnidade(unidadeId);
+    const lista = document.getElementById("lista-produtos");
+
+    produtos.forEach(p => {
+      const div = document.createElement("div");
+      div.className = "card produto-card";
+      let extra = p.sazonal ? '<span class="badge">Sazonal</span>' : "";
+      div.innerHTML = `
+        <span class="produto-icon">${p.icon || "🍽️"}</span>
+        <div class="produto-info">
+          <h4>${p.nome}${extra}</h4>
+          <span>${formatPreco(p.preco)}</span>
+          <p class="cat">${p.cat}</p>
+        </div>
+        <button class="btn btn-add" data-id="${p.id}">+</button>
+      `;
+      lista.appendChild(div);
+    });
+
+    lista.addEventListener("click", function(e) {
+      if (e.target.classList.contains("btn-add")) {
+        const id = parseInt(e.target.dataset.id);
+        const prod = produtos.find(p => p.id === id);
+        adicionarAoCarrinho(prod);
+        atualizarQtd();
+        e.target.textContent = "✓";
+        setTimeout(() => { e.target.textContent = "+"; }, 600);
+      }
+    });
+
+    function atualizarQtd() {
+      const total = getCarrinho().reduce((s, i) => s + i.qtd, 0);
+      document.getElementById("qtd-carrinho").textContent = total;
+      const resumo = document.getElementById("resumo-desktop");
+      if (window.innerWidth >= 768) {
+        resumo.innerHTML = total > 0
+          ? `<div class="card"><h3>Seu carrinho</h3><p>${total} item(ns)</p><p><strong>${formatPreco(totalCarrinho())}</strong></p><a href="carrinho.html" class="btn btn-block">Ver carrinho</a></div>`
+          : `<div class="card"><p style="color:#888;font-size:0.9rem;">Carrinho vazio</p></div>`;
+      }
+    }
+    atualizarQtd();
+    window.addEventListener("resize", atualizarQtd);
+  </script>
+</body>
+</html>

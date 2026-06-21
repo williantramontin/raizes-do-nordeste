@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento - Raízes do Nordeste</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">
+      <span class="logo-icon">🌵</span>
+      <h1>Raízes do Nordeste</h1>
+    </a>
+    <nav><a href="carrinho.html">Voltar</a></nav>
+  </header>
+
+  <main>
+    <h2>💳 Pagamento</h2>
+    <p style="font-size:0.92rem;color:#666;">O pagamento é processado por serviço externo. Nosso sistema envia a solicitação e recebe a confirmação.</p>
+
+    <div class="card">
+      <div class="total-box">
+        <p style="margin:0;font-size:0.9rem;">Valor do pedido</p>
+        <p style="margin:4px 0 0;"><span id="valor-pedido" class="pontos" style="font-size:1.5rem;">-</span></p>
+      </div>
+
+      <label>Forma de pagamento</label>
+      <select id="forma-pag">
+        <option value="pix">PIX</option>
+        <option value="credito">Cartão de crédito</option>
+        <option value="debito">Cartão de débito</option>
+      </select>
+
+      <button id="btn-pagar" class="btn btn-block">Pagar agora</button>
+      <button id="btn-falha" class="btn btn-sec btn-block">Simular falha no pagamento</button>
+      <div id="area-status"></div>
+    </div>
+
+    <div class="lgpd-box">
+      🔒 Seus dados de pagamento não ficam armazenados em nossos servidores. O processamento é feito pelo parceiro externo.
+    </div>
+  </main>
+
+  <footer><a href="privacidade.html">Política de Privacidade</a></footer>
+
+  <script src="js/mock-data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    const pedido = getPedidoAtual();
+    if (!pedido) location.href = "index.html";
+
+    document.getElementById("valor-pedido").textContent = formatPreco(pedido.total);
+    const area = document.getElementById("area-status");
+
+    document.getElementById("btn-pagar").addEventListener("click", function() {
+      area.innerHTML = '<p class="status status-pago">⏳ Enviando ao gateway de pagamento...</p>';
+      this.disabled = true;
+      setTimeout(function() {
+        area.innerHTML = '<p class="status status-pronto">✅ Pagamento confirmado pelo serviço externo!</p>';
+        atualizarStatusPedido("Pago");
+        adicionarPontos(pedido.total);
+        setTimeout(() => location.href = "pedido.html", 1500);
+      }, 2000);
+    });
+
+    document.getElementById("btn-falha").addEventListener("click", function() {
+      area.innerHTML = '<p class="status status-erro">❌ Pagamento recusado. Tente outra forma ou tente novamente.</p>';
+      document.getElementById("btn-pagar").disabled = false;
+    });
+  </script>
+</body>
+</html>
