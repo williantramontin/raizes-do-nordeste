@@ -19,7 +19,7 @@
     .sumario li { margin: 4px 0; }
     img { max-width: 100%; margin: 12px 0; border: 1px solid #ddd; }
     .figura { text-align: center; font-size: 10pt; margin: 16px 0; }
-    .figura img { max-height: 400px; }
+    .figura img, .figura svg { max-width: 100%; max-height: 420px; border: 1px solid #ddd; }
     .quebra { page-break-before: always; }
     ul, ol { margin-left: 1.5em; }
     .ref { font-size: 11pt; padding-left: 1.5em; text-indent: -1.5em; margin-bottom: 6px; }
@@ -97,7 +97,32 @@
 
 <h3>3.1 Diagrama de Casos de Uso</h3>
 <div class="figura">
-  <img src="../diagramas/casos-de-uso.svg" alt="Diagrama de casos de uso">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" font-family="Arial, sans-serif" font-size="12">
+  <rect width="900" height="650" fill="#f9f9f9"/>
+  <text x="450" y="30" text-anchor="middle" font-size="16" font-weight="bold">Diagrama de Casos de Uso - Raízes do Nordeste</text>
+  <rect x="180" y="60" width="540" height="560" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="450" y="80" text-anchor="middle" font-weight="bold">Sistema Raízes do Nordeste</text>
+  <g><circle cx="60" cy="150" r="15" fill="none" stroke="#000" stroke-width="2"/><line x1="60" y1="165" x2="60" y2="210" stroke="#000" stroke-width="2"/><line x1="60" y1="180" x2="35" y2="200" stroke="#000" stroke-width="2"/><line x1="60" y1="180" x2="85" y2="200" stroke="#000" stroke-width="2"/><line x1="60" y1="210" x2="40" y2="250" stroke="#000" stroke-width="2"/><line x1="60" y1="210" x2="80" y2="250" stroke="#000" stroke-width="2"/><text x="60" y="270" text-anchor="middle">Cliente</text></g>
+  <g transform="translate(0,120)"><circle cx="60" cy="150" r="15" fill="none" stroke="#000" stroke-width="2"/><line x1="60" y1="165" x2="60" y2="210" stroke="#000" stroke-width="2"/><line x1="60" y1="180" x2="35" y2="200" stroke="#000" stroke-width="2"/><line x1="60" y1="180" x2="85" y2="200" stroke="#000" stroke-width="2"/><line x1="60" y1="210" x2="40" y2="250" stroke="#000" stroke-width="2"/><line x1="60" y1="210" x2="80" y2="250" stroke="#000" stroke-width="2"/><text x="60" y="270" text-anchor="middle">Atendente</text></g>
+  <g transform="translate(0,240)"><circle cx="60" cy="150" r="15" fill="none" stroke="#000" stroke-width="2"/><line x1="60" y1="165" x2="60" y2="210" stroke="#000" stroke-width="2"/><line x1="60" y1="180" x2="35" y2="200" stroke="#000" stroke-width="2"/><line x1="60" y1="180" x2="85" y2="200" stroke="#000" stroke-width="2"/><line x1="60" y1="210" x2="40" y2="250" stroke="#000" stroke-width="2"/><line x1="60" y1="210" x2="80" y2="250" stroke="#000" stroke-width="2"/><text x="60" y="270" text-anchor="middle">Cozinha</text></g>
+  <g transform="translate(0,360)"><circle cx="60" cy="150" r="15" fill="none" stroke="#000" stroke-width="2"/><line x1="60" y1="165" x2="60" y2="210" stroke="#000" stroke-width="2"/><line x1="60" y1="180" x2="35" y2="200" stroke="#000" stroke-width="2"/><line x1="60" y1="180" x2="85" y2="200" stroke="#000" stroke-width="2"/><line x1="60" y1="210" x2="40" y2="250" stroke="#000" stroke-width="2"/><line x1="60" y1="210" x2="80" y2="250" stroke="#000" stroke-width="2"/><text x="60" y="270" text-anchor="middle">Gerente</text></g>
+  <g transform="translate(780,200)"><rect x="0" y="130" width="50" height="40" fill="none" stroke="#000" stroke-width="2"/><text x="25" y="190" text-anchor="middle" font-size="10">Pagamento</text><text x="25" y="202" text-anchor="middle" font-size="10">Externo</text></g>
+  <ellipse cx="300" cy="130" rx="75" ry="22" fill="#fff" stroke="#000"/><text x="300" y="134" text-anchor="middle">Cadastrar / Autenticar</text>
+  <ellipse cx="300" cy="190" rx="75" ry="22" fill="#fff" stroke="#000"/><text x="300" y="194" text-anchor="middle">Ver cardápio</text>
+  <ellipse cx="300" cy="250" rx="75" ry="22" fill="#fff" stroke="#000"/><text x="300" y="254" text-anchor="middle">Realizar pedido</text>
+  <ellipse cx="300" cy="310" rx="75" ry="22" fill="#fff" stroke="#000"/><text x="300" y="314" text-anchor="middle">Acompanhar status</text>
+  <ellipse cx="300" cy="370" rx="75" ry="22" fill="#fff" stroke="#000"/><text x="300" y="374" text-anchor="middle">Programa fidelidade</text>
+  <ellipse cx="300" cy="430" rx="75" ry="22" fill="#fff" stroke="#000"/><text x="300" y="434" text-anchor="middle">Ver promoções</text>
+  <ellipse cx="500" cy="190" rx="75" ry="22" fill="#fff" stroke="#000"/><text x="500" y="194" text-anchor="middle">Registrar pedido balcão</text>
+  <ellipse cx="500" cy="280" rx="75" ry="22" fill="#fff" stroke="#000"/><text x="500" y="284" text-anchor="middle">Atualizar status</text>
+  <ellipse cx="500" cy="370" rx="75" ry="22" fill="#fff" stroke="#000"/><text x="500" y="374" text-anchor="middle">Ver relatórios</text>
+  <ellipse cx="500" cy="450" rx="75" ry="22" fill="#fff" stroke="#000"/><text x="500" y="454" text-anchor="middle">Processar pagamento</text>
+  <ellipse cx="650" cy="280" rx="75" ry="22" fill="#fff" stroke="#000"/><text x="650" y="284" text-anchor="middle">Preparar pedido</text>
+  <line x1="75" y1="150" x2="225" y2="130" stroke="#000"/><line x1="75" y1="160" x2="225" y2="190" stroke="#000"/><line x1="75" y1="170" x2="225" y2="250" stroke="#000"/><line x1="75" y1="180" x2="225" y2="310" stroke="#000"/><line x1="75" y1="190" x2="225" y2="370" stroke="#000"/><line x1="75" y1="200" x2="225" y2="430" stroke="#000"/>
+  <line x1="75" y1="270" x2="425" y2="190" stroke="#000"/><line x1="75" y1="280" x2="425" y2="280" stroke="#000"/>
+  <line x1="75" y1="390" x2="575" y2="280" stroke="#000"/><line x1="75" y1="510" x2="425" y2="370" stroke="#000"/>
+  <line x1="575" y1="450" x2="780" y2="350" stroke="#000" stroke-dasharray="4,2"/><line x1="375" y1="250" x2="500" y2="450" stroke="#000" stroke-dasharray="4,2"/>
+</svg>
   <p>Figura 1 – Diagrama de Casos de Uso</p>
 </div>
 <p>Os atores são: Cliente, Atendente, Cozinha, Gerente e o sistema de Pagamento Externo. O cliente interage com cadastro, cardápio, pedido, status, fidelidade e promoções. O pagamento externo é acionado quando o cliente confirma o pedido.</p>
@@ -124,7 +149,21 @@
 
 <h3>3.3 Diagrama da Jornada do Usuário</h3>
 <div class="figura">
-  <img src="../diagramas/jornada-usuario.svg" alt="Jornada do usuário">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 400" font-family="Arial, sans-serif" font-size="11">
+  <rect width="950" height="400" fill="#fafafa"/>
+  <text x="475" y="25" text-anchor="middle" font-size="15" font-weight="bold">Jornada do Usuário - Cliente (App/Web)</text>
+  <line x1="50" y1="200" x2="900" y2="200" stroke="#ccc" stroke-width="3"/>
+  <g><circle cx="80" cy="200" r="20" fill="#e8751a" stroke="#5c3d2e" stroke-width="2"/><text x="80" y="205" text-anchor="middle" fill="white" font-weight="bold">1</text><text x="80" y="240" text-anchor="middle">Acessa app</text><text x="80" y="255" text-anchor="middle" fill="#666">Descobre marca</text><rect x="30" y="130" width="100" height="40" fill="#fff3cd" stroke="#ccc" rx="4"/><text x="80" y="155" text-anchor="middle">Emoção: curioso</text></g>
+  <g><circle cx="200" cy="200" r="20" fill="#e8751a" stroke="#5c3d2e" stroke-width="2"/><text x="200" y="205" text-anchor="middle" fill="white" font-weight="bold">2</text><text x="200" y="240" text-anchor="middle">Escolhe unidade</text><text x="200" y="255" text-anchor="middle" fill="#666">Cardápio local</text><rect x="150" y="280" width="100" height="35" fill="#e8f4fd" stroke="#ccc" rx="4"/><text x="200" y="302" text-anchor="middle">Sistema: filtra produtos</text></g>
+  <g><circle cx="320" cy="200" r="20" fill="#e8751a" stroke="#5c3d2e" stroke-width="2"/><text x="320" y="205" text-anchor="middle" fill="white" font-weight="bold">3</text><text x="320" y="240" text-anchor="middle">Monta pedido</text><text x="320" y="255" text-anchor="middle" fill="#666">Carrinho</text></g>
+  <g><circle cx="440" cy="200" r="20" fill="#e8751a" stroke="#5c3d2e" stroke-width="2"/><text x="440" y="205" text-anchor="middle" fill="white" font-weight="bold">4</text><text x="440" y="240" text-anchor="middle">Login/Cadastro</text><text x="440" y="255" text-anchor="middle" fill="#666">Consentimento LGPD</text><rect x="390" y="130" width="100" height="40" fill="#cce5ff" stroke="#ccc" rx="4"/><text x="440" y="148" text-anchor="middle">Decisão: criar</text><text x="440" y="162" text-anchor="middle">conta ou não</text></g>
+  <g><circle cx="560" cy="200" r="20" fill="#e8751a" stroke="#5c3d2e" stroke-width="2"/><text x="560" y="205" text-anchor="middle" fill="white" font-weight="bold">5</text><text x="560" y="240" text-anchor="middle">Pagamento</text><text x="560" y="255" text-anchor="middle" fill="#666">Gateway externo</text><rect x="510" y="280" width="100" height="45" fill="#d4edda" stroke="#ccc" rx="4"/><text x="560" y="298" text-anchor="middle">Integração:</text><text x="560" y="312" text-anchor="middle">confirma/recusa</text></g>
+  <g><circle cx="680" cy="200" r="20" fill="#e8751a" stroke="#5c3d2e" stroke-width="2"/><text x="680" y="205" text-anchor="middle" fill="white" font-weight="bold">6</text><text x="680" y="240" text-anchor="middle">Acompanha status</text><text x="680" y="255" text-anchor="middle" fill="#666">Em preparo</text><rect x="630" y="130" width="100" height="35" fill="#fff3cd" stroke="#ccc" rx="4"/><text x="680" y="152" text-anchor="middle">Estado: aguardando</text></g>
+  <g><circle cx="800" cy="200" r="20" fill="#2d6a4f" stroke="#5c3d2e" stroke-width="2"/><text x="800" y="205" text-anchor="middle" fill="white" font-weight="bold">7</text><text x="800" y="240" text-anchor="middle">Retira pedido</text><text x="800" y="255" text-anchor="middle" fill="#666">Ganha pontos</text><rect x="750" y="280" width="100" height="35" fill="#d4edda" stroke="#ccc" rx="4"/><text x="800" y="302" text-anchor="middle">Fidelidade ativa</text></g>
+  <polygon points="115,200 125,195 125,205" fill="#999"/><polygon points="235,200 245,195 245,205" fill="#999"/><polygon points="355,200 365,195 365,205" fill="#999"/><polygon points="475,200 485,195 485,205" fill="#999"/><polygon points="595,200 605,195 605,205" fill="#999"/><polygon points="715,200 725,195 725,205" fill="#999"/>
+  <text x="475" y="370" text-anchor="middle" fill="#666">Pontos de dor: fila na loja, falha no pagamento, produto indisponível na unidade</text>
+  <text x="475" y="388" text-anchor="middle" fill="#666">Canais: App, Web e Totem compartilham a mesma lógica de cardápio e pedido</text>
+</svg>
   <p>Figura 2 – Jornada do Cliente (do acesso ao cardápio até a retirada)</p>
 </div>
 <p>A jornada começa quando o cliente abre o app e escolhe a unidade. Depois monta o pedido, pode criar conta (com consentimento LGPD), paga pelo serviço externo, acompanha o status e retira na loja ganhando pontos. Os pontos de dor identificados são: fila no horário de pico, pagamento que falha e produto que não existe naquela unidade.</p>
