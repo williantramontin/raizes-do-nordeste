@@ -20,6 +20,9 @@
     img { max-width: 100%; margin: 12px 0; border: 1px solid #ddd; }
     .figura { text-align: center; font-size: 10pt; margin: 16px 0; }
     .figura img, .figura svg { max-width: 100%; max-height: 420px; border: 1px solid #ddd; }
+    .figura-dupla { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .figura-dupla img { max-width: 48%; min-width: 280px; }
+    .figura-grid img { max-width: 100%; margin-bottom: 10px; }
     .quebra { page-break-before: always; }
     ul, ol { margin-left: 1.5em; }
     .ref { font-size: 11pt; padding-left: 1.5em; text-indent: -1.5em; margin-bottom: 6px; }
@@ -170,10 +173,12 @@
 
 <h2 id="wire" class="quebra">4. Wireframes</h2>
 <p>Foram feitos wireframes de baixa fidelidade para validar a disposição dos elementos antes de codificar. As telas principais são: início (escolha de unidade), cardápio, cadastro, pagamento, status do pedido e fidelidade. Também foi esboçado o fluxo do totem e a versão desktop do cardápio.</p>
-<p>Os wireframes estão no arquivo <em>wireframes/index.html</em> do projeto. Para incluir no PDF, abra essa página no navegador, tire print das telas e cole aqui, ou acesse diretamente:</p>
-<p><strong>Arquivo local:</strong> wireframes/index.html</p>
+<p>Wireframes disponíveis em: https://williantramontin.github.io/raizes-do-nordeste/wireframes/</p>
 <div class="figura">
-  <p><em>[Inserir prints das wireframes mobile e desktop aqui antes de entregar]</em></p>
+  <div class="figura-dupla">
+    <img src="imagens/wireframes-mobile.png" alt="Wireframes mobile">
+    <img src="imagens/wireframes-desktop.png" alt="Wireframes desktop">
+  </div>
   <p>Figura 3 – Wireframes de baixa fidelidade (mobile e desktop)</p>
 </div>
 
@@ -239,7 +244,38 @@
 </table>
 
 <h3>7.1 Evidências</h3>
-<p><em>[Inserir prints das telas principais e dos testes T03, T07 e T08 antes de entregar o PDF]</em></p>
+<p>Prints das telas principais do site publicado e dos testes T03 (LGPD), T07 (fluxo de pedido) e T08 (falha no pagamento):</p>
+
+<div class="figura">
+  <p><strong>Telas principais</strong></p>
+  <div class="figura-dupla">
+    <img src="imagens/tela-inicio.png" alt="Tela inicial">
+    <img src="imagens/cardapio.png" alt="Cardápio mobile">
+  </div>
+  <img src="imagens/cardapio-desktop.png" alt="Cardápio desktop" style="max-width:100%;">
+  <p>Figura 4 – Tela inicial, cardápio mobile e desktop</p>
+</div>
+
+<div class="figura">
+  <p><strong>T03 – Cadastro sem consentimento LGPD (teste negativo)</strong></p>
+  <img src="imagens/cadastro-lgpd.png" alt="Tela de cadastro com checkboxes LGPD">
+  <p>Figura 5 – Tela de cadastro com consentimento explícito (LGPD)</p>
+</div>
+
+<div class="figura">
+  <p><strong>T07 – Fluxo de pedido e pagamento (teste positivo)</strong></p>
+  <div class="figura-dupla">
+    <img src="imagens/pagamento-confirmado.png" alt="Pagamento confirmado">
+    <img src="imagens/pedido-status.png" alt="Status do pedido">
+  </div>
+  <p>Figura 6 – Confirmação de pagamento e acompanhamento do status</p>
+</div>
+
+<div class="figura">
+  <p><strong>T08 – Falha no pagamento (teste negativo)</strong></p>
+  <img src="imagens/pagamento-erro.png" alt="Erro no pagamento">
+  <p>Figura 7 – Mensagem de erro quando o pagamento é recusado</p>
+</div>
 
 <h2 id="conc" class="quebra">8. Conclusão</h2>
 <p>Este projeto me fez pensar no sistema como um todo, não só nas telas. A parte mais difícil foi conciliar multicanalidade (app, web, totem) com cardápios diferentes por unidade. Resolver isso filtrando produtos por ID da unidade no JavaScript foi simples, mas na versão real viria da API do back-end.</p>
